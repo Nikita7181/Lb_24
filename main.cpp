@@ -51,9 +51,7 @@ public:
    const char* getError()
     {return error;}
     const char * what() const noexcept override
-    {
-        return error;
-    }
+    {return error;}
 };
 
 float SQRT(const float& ob)
