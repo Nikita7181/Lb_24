@@ -76,7 +76,7 @@ int main()
     std::cout << "--------------------------------good------------------------------"<< std::endl;
     normal_memory z1;
     z1.push();
-    // #1
+    // #2
     float x;
     std::cout << "x= ";
     std::cin >> x;
@@ -90,7 +90,7 @@ int main()
         std::cout << e.getData() << std::endl;
     }
 
-    //#2
+    //#1
     //out_of_range
    std::vector<int> test(4);
    try
