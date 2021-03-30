@@ -27,6 +27,7 @@ public:
         {
             delete i;
         }
+        std::cout << "work" << std::endl;
 
     }
     void push()
@@ -48,7 +49,7 @@ public:
     }
     int getData()
     {return data;}
-   const char* getError()
+    const char* getError()
     {return error;}
     const char * what() const noexcept override
     {return error;}
@@ -84,75 +85,75 @@ int main()
     }
     catch(Myexception& e)
     {
-        std::cout << e.what() << std::endl;
-        std::cout << e.getData() << std::endl;
+        std::cout << e.what() << " " << e.getData() << std::endl;
+
     }
 
     //#1
     //out_of_range
-   std::vector<int> test(4);
-   try
-   {
-    test.at(5);
-   }
-   catch (std::out_of_range& e)
-   {
-       std::cout << e.what() << std::endl;
-   }
-   //length_error
-   try
-   {
-       test.resize(-5);
-   }
-   catch (std::length_error& e)
-   {
-       std::cout << e.what() << std::endl;
-   }
-   // invalid argument
-  std::string str = "word";
+    std::vector<int> test(4);
+    try
+    {
+        test.at(5);
+    }
+    catch (std::out_of_range& e)
+    {
+        std::cout << e.what() << std::endl;
+    }
+    //length_error
+    try
+    {
+        test.resize(-5);
+    }
+    catch (std::length_error& e)
+    {
+        std::cout << e.what() << std::endl;
+    }
+    // invalid argument
+    std::string str = "word";
 
-   try
-   {
-       std::cout << std::stoi(str) << std::endl;
-   }
-   catch(std::invalid_argument& e)
-   {
-       std::cout << e.what() << std::endl;
-   }
-   //bad_cast
-   struct my
-   {
-       virtual ~my() {};
-       int k;
-   };
-   struct my1
-   {
-       virtual ~my1() {};
-       std::string i;
-   };
-   my1 test_5;
-   try
-   {
-    auto test_4 = dynamic_cast<my&>(test_5);
-   }
-   catch (std::bad_cast& e)
-   {
-       std::cout << e.what() << std::endl;
-   }
-   //bad_alloc
-   char* str_1;
-   int k =1;
-   try
-   {
-       while (k)
-       {
-           str_1 = new char[10000000000000];
-       }
-   }
-   catch(std::bad_alloc& e)
-   {
-       std::cout << e.what() << std::endl;
-   }
+    try
+    {
+        std::cout << std::stoi(str) << std::endl;
+    }
+    catch(std::invalid_argument& e)
+    {
+        std::cout << e.what() << std::endl;
+    }
+    //bad_cast
+    struct my
+    {
+        virtual ~my() {};
+        int k;
+    };
+    struct my1
+    {
+        virtual ~my1() {};
+        std::string i;
+    };
+    my1 test_5;
+    try
+    {
+        auto test_4 = dynamic_cast<my&>(test_5);
+    }
+    catch (std::bad_cast& e)
+    {
+        std::cout << e.what() << std::endl;
+    }
+    //bad_alloc
+    char* str_1;
+    int k =1;
+    try
+    {
+        while (k)
+        {
+            str_1 = new char[10000000000000];
+        }
+    }
+    catch(std::bad_alloc& e)
+    {
+        std::cout << e.what() << std::endl;
+    }
 
 
     return 0;
