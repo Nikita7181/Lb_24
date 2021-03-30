@@ -44,12 +44,12 @@ class Myexception : public std::exception
     float data;
     const char* error;
 public:
-    Myexception(char *error, float data): error(error), data(data)
+    Myexception(const char *error, float data): error(error), data(data)
     {
     }
-    int getData()
+    float getData() const
     {return data;}
-    const char* getError()
+    const char* getError() const
     {return error;}
     const char * what() const noexcept override
     {return error;}
