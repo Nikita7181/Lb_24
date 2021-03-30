@@ -25,7 +25,7 @@ public:
     {
         for(auto i : vec)
         {
-            delete i;
+            delete[] i;
         }
 
     }
